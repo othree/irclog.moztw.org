@@ -11,6 +11,7 @@ class db_class
 		// $this->_conn = mysqli_connect( $server.$port, $user, $password );
 		$this->_conn = new mysqli( $server.$port, $user, $password , $database);
 		if (!$this->_conn){ die ("Could not connect: " + mysqli_error() ); }
+		mysqli_set_charset($this->_conn, "utf8");
 		
 		// Verify that we received a proper time zone, otherwise fall back to default
 		$allZones = DateTimeZone::listIdentifiers();
